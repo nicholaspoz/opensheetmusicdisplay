@@ -24,8 +24,8 @@ export declare abstract class StaffMeasure extends GraphicalObject {
     private parentStaff;
     private measureNumber;
     private parentStaffLine;
-    ParentStaff: Staff;
-    MeasureNumber: number;
+    readonly ParentStaff: Staff;
+    readonly MeasureNumber: number;
     FirstInstructionStaffEntry: GraphicalStaffEntry;
     LastInstructionStaffEntry: GraphicalStaffEntry;
     ParentStaffLine: StaffLine;

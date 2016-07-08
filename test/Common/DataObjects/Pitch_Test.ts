@@ -1,3 +1,4 @@
+import chai = require("chai");
 import { Pitch, NoteEnum, AccidentalEnum } from "../../../src/Common/DataObjects/pitch";
 
 describe("Pitch Unit Tests:", () => {

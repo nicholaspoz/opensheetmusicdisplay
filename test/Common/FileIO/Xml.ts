@@ -1,3 +1,4 @@
+import chai = require("chai");
 import { IXmlElement } from "../../../src/Common/FileIO/Xml.ts";
 
 // Test XML simple document

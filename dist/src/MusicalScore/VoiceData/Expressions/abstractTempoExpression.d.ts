@@ -9,7 +9,7 @@ export declare abstract class AbstractTempoExpression {
     Label: string;
     Placement: PlacementEnum;
     StaffNumber: number;
-    ParentMultiTempoExpression: MultiTempoExpression;
+    readonly ParentMultiTempoExpression: MultiTempoExpression;
     protected static isStringInStringList(wordsToFind: string[], inputString: string): boolean;
     private static stringContainsSeparatedWord(str, word);
 }

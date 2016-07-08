@@ -17,7 +17,7 @@ export declare class ContinuousTempoExpression extends AbstractTempoExpression {
     StartTempo: number;
     EndTempo: number;
     AbsoluteEndTimestamp: Fraction;
-    AbsoluteTimestamp: Fraction;
+    readonly AbsoluteTimestamp: Fraction;
     getAbsoluteFloatTimestamp(): number;
     getInterpolatedTempo(currentAbsoluteTimestamp: Fraction): number;
     private setTempoType();

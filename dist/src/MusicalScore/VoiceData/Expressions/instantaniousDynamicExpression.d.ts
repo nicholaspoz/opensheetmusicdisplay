@@ -18,8 +18,8 @@ export declare class InstantaniousDynamicExpression extends AbstractExpression {
     SoundDynamic: number;
     Placement: PlacementEnum;
     StaffNumber: number;
-    Length: number;
-    MidiVolume: number;
+    readonly Length: number;
+    readonly MidiVolume: number;
     static isInputStringInstantaniousDynamic(inputString: string): boolean;
     getDynamicExpressionSymbol(c: string): DynamicExpressionSymbolEnum;
     private calculateLength();

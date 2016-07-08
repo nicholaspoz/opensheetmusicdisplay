@@ -1,6 +1,7 @@
 /**
  * Created by Oliver on 16.03.2016.
  */
+import chai = require("chai");
 import { Fraction } from "../../../src/Common/DataObjects/fraction";
 import Dictionary from "typescript-collections/dist/lib/Dictionary";
 

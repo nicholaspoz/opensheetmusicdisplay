@@ -114,16 +114,16 @@ var VexFlowMusicSheetCalculator = (function (_super) {
                 for (var idx2 = 0, len2 = graphicalMusicPage.MusicSystems.length; idx2 < len2; ++idx2) {
                     var musicSystem = graphicalMusicPage.MusicSystems[idx2];
                     // calculate y positions of stafflines within system
-                    var y = 0;
+                    var y = 10;
                     for (var _i = 0, _a = musicSystem.StaffLines; _i < _a.length; _i++) {
                         var line = _a[_i];
                         line.PositionAndShape.RelativePosition.y = y;
                         y += 10;
                     }
                     // set y positions of systems using the previous system and a fixed distance.
-                    musicSystem.PositionAndShape.BorderBottom = y + 10;
+                    musicSystem.PositionAndShape.BorderBottom = y + 0;
                     musicSystem.PositionAndShape.RelativePosition.y = globalY;
-                    globalY += y + 10;
+                    globalY += y + 0;
                 }
             }
         }

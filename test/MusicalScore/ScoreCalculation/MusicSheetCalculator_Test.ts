@@ -1,6 +1,7 @@
 /**
  * Created by Matthias on 21.06.2016.
  */
+import chai = require("chai");
 import {MusicSheetReader} from "../../../src/MusicalScore/ScoreIO/MusicSheetReader";
 import {MusicSheet} from "../../../src/MusicalScore/MusicSheet";
 import {IXmlElement} from "../../../src/Common/FileIO/Xml";

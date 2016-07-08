@@ -5,8 +5,8 @@ export declare class InstrumentalGroup {
     private musicSheet;
     private parent;
     private instrumentalGroups;
-    InstrumentalGroups: InstrumentalGroup[];
-    Parent: InstrumentalGroup;
+    readonly InstrumentalGroups: InstrumentalGroup[];
+    readonly Parent: InstrumentalGroup;
     Name: string;
-    GetMusicSheet: MusicSheet;
+    readonly GetMusicSheet: MusicSheet;
 }

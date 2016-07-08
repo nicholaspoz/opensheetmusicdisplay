@@ -7,8 +7,9 @@ import {VexFlowMusicSheetDrawer} from "./MusicalScore/Graphical/VexFlow/VexFlowM
 import {MusicSheet} from "./MusicalScore/MusicSheet";
 import {Fraction} from "./Common/DataObjects/fraction";
 import {OutlineAndFillStyleEnum} from "./MusicalScore/Graphical/DrawingEnums";
+import {Event, IEvent, IEventSource, IPlugin, PluginHost} from "./Plugin";
 
-export class MusicSheetAPI {
+export class MusicSheetAPI implements IEventSource {
     constructor(container: HTMLElement) {
         this.container = container;
         this.titles = document.createElement("div");
@@ -26,11 +27,18 @@ export class MusicSheetAPI {
     private graphic: GraphicalMusicSheet;
     private zoom: number = 1.0;
     private unit: number = 10.0;
-
     private fraction: Fraction = new Fraction(0, 4);
+
+    // Hold a host for OSMD plugins
+    private pluginHost: PluginHost;
+
+    // Events
+    private onSheetLoaded: Event<MusicSheet> = new Event<MusicSheet>();
+    private onSizeChanged: Event<SizeF2D> = new Event<SizeF2D>();
 
     /**
      * Load a MusicXML file
+     *
      * @param doc is the root node of a MusicXML document
      */
     public load(content: string|Document): void {
@@ -54,6 +62,7 @@ export class MusicSheetAPI {
         let calc: MusicSheetCalculator = new VexFlowMusicSheetCalculator();
         let reader: MusicSheetReader = new MusicSheetReader();
         this.sheet = reader.createMusicSheet(score, path);
+        this.onSheetLoaded.trigger(this.sheet); // emit `OnSheetLoaded` event
         this.graphic = new GraphicalMusicSheet(this.sheet, calc);
     }
 
@@ -135,4 +144,29 @@ export class MusicSheetAPI {
         this.unit = 10.0;
         this.resetTitle();
     }
+
+    /**
+     * Register a plugin with this OSMD instance.
+     *
+     * @param plugin The plugin to be registered with this instance.
+     */
+    public registerPlugin(plugin: IPlugin): void {
+        this.pluginHost.registerPlugin(plugin);
+    }
+
+    /**
+     * Unregister a plugin with this OSMD instance.
+     *
+     * @param plugin The plugin to be unregistered from this instance.     
+     */
+    public unregisterPlugin(plugin: IPlugin): void {
+        this.pluginHost.unregisterPlugin(plugin);
+    }
+
+    /*
+     * Publish events emmitted as IEventSource. For documentation, see IEventSource.
+     */
+    public get OnSheetLoaded(): IEvent<MusicSheet> { return this.onSheetLoaded; }
+    public get OnSizeChanged(): IEvent<SizeF2D> { return this.onSizeChanged; }
+
 }

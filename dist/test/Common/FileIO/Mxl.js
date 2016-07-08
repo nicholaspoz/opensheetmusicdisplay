@@ -1,4 +1,5 @@
 "use strict";
+var chai = require('chai');
 var Mxl_ts_1 = require("../../../src/Common/FileIO/Mxl.ts");
 describe("MXL Tests", function () {
     // Load the mxl file

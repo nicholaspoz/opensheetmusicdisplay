@@ -1,3 +1,4 @@
+import chai = require("chai");
 import {VexFlowMusicSheetDrawer} from "../../../../src/MusicalScore/Graphical/VexFlow/VexFlowMusicSheetDrawer";
 import {GraphicalMusicSheet} from "../../../../src/MusicalScore/Graphical/GraphicalMusicSheet";
 import {MusicSheet} from "../../../../src/MusicalScore/MusicSheet";

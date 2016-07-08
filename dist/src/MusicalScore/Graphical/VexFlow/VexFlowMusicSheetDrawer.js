@@ -8,26 +8,36 @@ var Vex = require("vexflow");
 var MusicSheetDrawer_1 = require("../MusicSheetDrawer");
 var RectangleF2D_1 = require("../../../Common/DataObjects/RectangleF2D");
 var PointF2D_1 = require("../../../Common/DataObjects/PointF2D");
-/**
- * Created by Matthias on 22.06.2016.
- */
+var VexFlowConverter_1 = require("./VexFlowConverter");
 var VexFlowMusicSheetDrawer = (function (_super) {
     __extends(VexFlowMusicSheetDrawer, _super);
     function VexFlowMusicSheetDrawer(canvas, textMeasurer, isPreviewImageDrawer) {
         if (isPreviewImageDrawer === void 0) { isPreviewImageDrawer = false; }
         _super.call(this, textMeasurer, isPreviewImageDrawer);
         this.renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
-        this.ctx = this.renderer.getContext();
+        this.vfctx = this.renderer.getContext();
+        // The following is a hack to retrieve the actual canvas' drawing context
+        // Not supposed to work forever....
+        this.ctx = this.vfctx.vexFlowCanvasContext;
     }
+    /**
+     * Zoom the rendering areas
+     * @param k is the zoom factor
+     */
     VexFlowMusicSheetDrawer.prototype.scale = function (k) {
-        this.ctx.scale(k, k);
+        this.vfctx.scale(k, k);
     };
+    /**
+     * Resize the rendering areas
+     * @param x
+     * @param y
+     */
     VexFlowMusicSheetDrawer.prototype.resize = function (x, y) {
         this.renderer.resize(x, y);
     };
     VexFlowMusicSheetDrawer.prototype.translate = function (x, y) {
-        // FIXME
-        this.ctx.vexFlowCanvasContext.translate(x, y);
+        // Translation seems not supported by VexFlow
+        this.ctx.translate(x, y);
     };
     /**
      * Converts a distance from unit to pixel space.
@@ -35,12 +45,11 @@ var VexFlowMusicSheetDrawer = (function (_super) {
      * @returns {number} the distance in pixels
      */
     VexFlowMusicSheetDrawer.prototype.calculatePixelDistance = function (unitDistance) {
-        // ToDo: implement!
         return unitDistance * 10.0;
     };
     VexFlowMusicSheetDrawer.prototype.drawMeasure = function (measure) {
-        measure.setAbsoluteCoordinates(measure.PositionAndShape.AbsolutePosition.x * measure.unit, measure.PositionAndShape.AbsolutePosition.y * measure.unit);
-        return measure.draw(this.ctx);
+        measure.setAbsoluteCoordinates(measure.PositionAndShape.AbsolutePosition.x * 10.0, measure.PositionAndShape.AbsolutePosition.y * 10.0);
+        return measure.draw(this.vfctx);
     };
     /**
      * Renders a Label to the screen (e.g. Title, composer..)
@@ -52,11 +61,11 @@ var VexFlowMusicSheetDrawer = (function (_super) {
      * @param screenPosition the position of the lower left corner of the text in screen coordinates
      */
     VexFlowMusicSheetDrawer.prototype.renderLabel = function (graphicalLabel, layer, bitmapWidth, bitmapHeight, heightInPixel, screenPosition) {
-        // ToDo: implement!
-        var ctx = this.ctx.vexFlowCanvasContext;
-        ctx.font = Math.floor(graphicalLabel.Label.fontHeight * 10) + "px 'Times New Roman'";
-        console.log(graphicalLabel.Label.text, screenPosition.x, screenPosition.y);
-        ctx.fillText(graphicalLabel.Label.text, screenPosition.x, screenPosition.y);
+        var ctx = this.vfctx.vexFlowCanvasContext;
+        var old = ctx.font;
+        ctx.font = VexFlowConverter_1.VexFlowConverter.font(graphicalLabel.Label.fontHeight * 10.0, graphicalLabel.Label.fontStyle, graphicalLabel.Label.font);
+        ctx.fillText(graphicalLabel.Label.text, screenPosition.x, screenPosition.y + heightInPixel);
+        ctx.font = old;
     };
     /**
      * Renders a rectangle with the given style to the screen.
@@ -66,7 +75,10 @@ var VexFlowMusicSheetDrawer = (function (_super) {
      * @param styleId the style id
      */
     VexFlowMusicSheetDrawer.prototype.renderRectangle = function (rectangle, layer, styleId) {
-        // ToDo: implement!
+        var old = this.ctx.fillStyle;
+        this.ctx.fillStyle = VexFlowConverter_1.VexFlowConverter.style(styleId);
+        this.ctx.fillRect(rectangle.x, rectangle.y, rectangle.width, rectangle.height);
+        this.ctx.fillStyle = old;
     };
     /**
      * Converts a point from unit to pixel space.
@@ -74,7 +86,6 @@ var VexFlowMusicSheetDrawer = (function (_super) {
      * @returns {PointF2D}
      */
     VexFlowMusicSheetDrawer.prototype.applyScreenTransformation = function (point) {
-        // ToDo: implement!
         return new PointF2D_1.PointF2D(point.x * 10.0, point.y * 10.0);
     };
     /**
@@ -83,8 +94,7 @@ var VexFlowMusicSheetDrawer = (function (_super) {
      * @returns {RectangleF2D}
      */
     VexFlowMusicSheetDrawer.prototype.applyScreenTransformationForRect = function (rectangle) {
-        // FIXME Check if correct
-        return new RectangleF2D_1.RectangleF2D(rectangle.x * 10, rectangle.y * 10, rectangle.width * 10, rectangle.height * 10);
+        return new RectangleF2D_1.RectangleF2D(rectangle.x * 10.0, rectangle.y * 10.0, rectangle.width * 10.0, rectangle.height * 10.0);
     };
     return VexFlowMusicSheetDrawer;
 }(MusicSheetDrawer_1.MusicSheetDrawer));

@@ -24,10 +24,10 @@ export declare class Note {
     private playbackInstrumentId;
     GraceNoteSlash: boolean;
     ParentVoiceEntry: VoiceEntry;
-    ParentStaffEntry: SourceStaffEntry;
-    ParentStaff: Staff;
+    readonly ParentStaffEntry: SourceStaffEntry;
+    readonly ParentStaff: Staff;
     Length: Fraction;
-    Pitch: Pitch;
+    readonly Pitch: Pitch;
     NoteBeam: Beam;
     NoteTuplet: Tuplet;
     NoteTie: Tie;

@@ -6,7 +6,7 @@ export declare class GraphicalChordSymbolContainer extends GraphicalObject {
     private chordSymbolContainer;
     private graphicalLabel;
     constructor(chordSymbolContainer: ChordSymbolContainer, parent: BoundingBox, textHeight: number, transposeHalftones: number);
-    GetChordSymbolContainer: ChordSymbolContainer;
-    GetGraphicalLabel: GraphicalLabel;
+    readonly GetChordSymbolContainer: ChordSymbolContainer;
+    readonly GetGraphicalLabel: GraphicalLabel;
     private calculateLabel(textHeight, transposeHalftones);
 }

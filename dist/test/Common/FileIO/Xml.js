@@ -1,4 +1,5 @@
 "use strict";
+var chai = require('chai');
 var Xml_ts_1 = require("../../../src/Common/FileIO/Xml.ts");
 // Test XML simple document
 var xmlTestData = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\

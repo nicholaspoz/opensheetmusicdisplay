@@ -5,6 +5,7 @@ import { BoundingBox } from "./BoundingBox";
 export declare class GraphicalLabel extends Clickable {
     private label;
     constructor(label: Label, textHeight: number, alignment: TextAlignment, parent?: BoundingBox);
-    Label: Label;
+    readonly Label: Label;
+    toString(): string;
     setLabelPositionAndShapeBorders(): void;
 }

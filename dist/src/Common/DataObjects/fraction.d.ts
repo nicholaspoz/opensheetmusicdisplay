@@ -14,7 +14,7 @@ export declare class Fraction {
     clone(): Fraction;
     Numerator: number;
     Denominator: number;
-    RealValue: number;
+    readonly RealValue: number;
     multiplyWithFactor(factor: number): void;
     multiplyDenominatorWithFactor(factor: number): void;
     Add(fraction: Fraction): void;

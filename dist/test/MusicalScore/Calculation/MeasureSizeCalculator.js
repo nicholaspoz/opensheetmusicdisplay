@@ -1,9 +1,10 @@
 "use strict";
+var chai = require('chai');
 var MeasureSizeCalculator_ts_1 = require("../../../src/MusicalScore/Calculation/MeasureSizeCalculator.ts");
 var Vex = require("vexflow");
 describe("Measure Size Calculator Tests", function () {
     // Initialization
-    var stave = new Vex.Flow.Stave(0, 0, 0);
+    var stave = new Vex.Flow.Stave(0, 0, 0, {});
     var voices;
     var formatter;
     var voice;
@@ -50,7 +51,7 @@ describe("Measure Size Calculator Tests", function () {
         };
         visual(function (renderer, ctx) {
             renderer.resize(420, 120);
-            var stave2 = new Vex.Flow.Stave(10, 0, 410);
+            var stave2 = new Vex.Flow.Stave(10, 0, 410, {});
             stave2.setContext(ctx);
             for (var t in Vex.Flow.Clef.types) {
                 if (Vex.Flow.Clef.types.hasOwnProperty(t)) {
