@@ -13,12 +13,12 @@ export declare class MultiTempoExpression {
     private continuousTempo;
     private expressions;
     private combinedExpressionsText;
-    readonly Timestamp: Fraction;
-    readonly AbsoluteTimestamp: Fraction;
+    Timestamp: Fraction;
+    AbsoluteTimestamp: Fraction;
     SourceMeasureParent: SourceMeasure;
-    readonly InstantaniousTempo: InstantaniousTempoExpression;
-    readonly ContinuousTempo: ContinuousTempoExpression;
-    readonly EntriesList: TempoExpressionEntry[];
+    InstantaniousTempo: InstantaniousTempoExpression;
+    ContinuousTempo: ContinuousTempoExpression;
+    EntriesList: TempoExpressionEntry[];
     CombinedExpressionsText: string;
     getPlacementOfFirstEntry(): PlacementEnum;
     getFontstyleOfFirstEntry(): FontStyles;

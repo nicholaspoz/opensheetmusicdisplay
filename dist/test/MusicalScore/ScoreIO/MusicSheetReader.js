@@ -1,5 +1,5 @@
 "use strict";
-var chai = require('chai');
+var chai = require("chai");
 var MusicSheetReader_1 = require("../../../src/MusicalScore/ScoreIO/MusicSheetReader");
 var Xml_1 = require("../../../src/Common/FileIO/Xml");
 describe("Music Sheet Reader Tests", function () {

@@ -6,8 +6,8 @@ export declare class UnknownExpression extends AbstractExpression {
     private placement;
     private textAlignment;
     private staffNumber;
-    readonly Label: string;
+    Label: string;
     Placement: PlacementEnum;
     StaffNumber: number;
-    readonly TextAlignment: TextAlignment;
+    TextAlignment: TextAlignment;
 }

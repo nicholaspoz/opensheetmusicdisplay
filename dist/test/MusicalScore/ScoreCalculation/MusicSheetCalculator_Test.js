@@ -2,7 +2,7 @@
 /**
  * Created by Matthias on 21.06.2016.
  */
-var chai = require('chai');
+var chai = require("chai");
 var MusicSheetReader_1 = require("../../../src/MusicalScore/ScoreIO/MusicSheetReader");
 var MusicSheetCalculator_1 = require("../../../src/MusicalScore/Graphical/MusicSheetCalculator");
 var VexFlowMusicSheetCalculator_1 = require("../../../src/MusicalScore/Graphical/VexFlow/VexFlowMusicSheetCalculator");

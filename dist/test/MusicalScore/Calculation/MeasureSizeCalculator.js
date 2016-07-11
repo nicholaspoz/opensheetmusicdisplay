@@ -1,5 +1,5 @@
 "use strict";
-var chai = require('chai');
+var chai = require("chai");
 var MeasureSizeCalculator_ts_1 = require("../../../src/MusicalScore/Calculation/MeasureSizeCalculator.ts");
 var Vex = require("vexflow");
 describe("Measure Size Calculator Tests", function () {

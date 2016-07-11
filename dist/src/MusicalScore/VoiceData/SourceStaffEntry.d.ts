@@ -14,10 +14,10 @@ export declare class SourceStaffEntry {
     private staffEntryLink;
     private instructions;
     private chordSymbolContainer;
-    readonly ParentStaff: Staff;
-    readonly VerticalContainerParent: VerticalSourceStaffEntryContainer;
-    readonly Timestamp: Fraction;
-    readonly AbsoluteTimestamp: Fraction;
+    ParentStaff: Staff;
+    VerticalContainerParent: VerticalSourceStaffEntryContainer;
+    Timestamp: Fraction;
+    AbsoluteTimestamp: Fraction;
     VoiceEntries: VoiceEntry[];
     Link: StaffEntryLink;
     Instructions: AbstractNotationInstruction[];

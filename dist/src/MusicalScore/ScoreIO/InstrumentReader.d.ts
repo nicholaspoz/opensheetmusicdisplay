@@ -29,8 +29,8 @@ export declare class InstrumentReader {
     private openChordSymbolContainer;
     private currentVoiceGenerator;
     private maxTieNoteFraction;
-    readonly ActiveKey: KeyInstruction;
-    readonly MaxTieNoteFraction: Fraction;
+    ActiveKey: KeyInstruction;
+    MaxTieNoteFraction: Fraction;
     ActiveRhythm: RhythmInstruction;
     readNextXmlMeasure(currentMeasure: SourceMeasure, measureStartAbsoluteTimestamp: Fraction, guitarPro: boolean): boolean;
     doCalculationsAfterDurationHasBeenSet(): void;

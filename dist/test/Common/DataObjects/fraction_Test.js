@@ -2,7 +2,7 @@
 /**
  * Created by Oliver on 16.03.2016.
  */
-var chai = require('chai');
+var chai = require("chai");
 var fraction_1 = require("../../../src/Common/DataObjects/fraction");
 var Dictionary_1 = require("typescript-collections/dist/lib/Dictionary");
 describe("Fraction Unit Tests:", function () {

@@ -5,7 +5,7 @@ export declare class GraphicalTie {
     private startNote;
     private endNote;
     constructor(tie: Tie, start?: GraphicalNote, end?: GraphicalNote);
-    readonly GetTie: Tie;
+    GetTie: Tie;
     StartNote: GraphicalNote;
     EndNote: GraphicalNote;
 }

@@ -8,7 +8,7 @@ export declare class MusicSheetReader {
     private currentMeasure;
     private previousMeasure;
     private currentFraction;
-    readonly CompleteNumberOfStaves: number;
+    CompleteNumberOfStaves: number;
     private static doCalculationsAfterDurationHasBeenSet(instrumentReaders);
     createMusicSheet(root: IXmlElement, path: string): MusicSheet;
     private _removeFromArray(list, elem);

@@ -11,6 +11,6 @@ export declare class GraphicalNote extends GraphicalObject {
     sourceNote: Note;
     graphicalNoteLength: Fraction;
     parentStaffEntry: GraphicalStaffEntry;
-    readonly ParentList: GraphicalNote[];
+    ParentList: GraphicalNote[];
     Transpose(keyInstruction: KeyInstruction, activeClef: ClefInstruction, halfTones: number, octaveEnum: OctaveEnum): Pitch;
 }

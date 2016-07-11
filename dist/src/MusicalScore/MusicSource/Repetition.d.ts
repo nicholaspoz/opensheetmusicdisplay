@@ -18,26 +18,26 @@ export declare class Repetition extends PartListEntry {
     private repetitonIterationOrder;
     private numberOfEndings;
     private virtualOverallRepetition;
-    readonly BackwardJumpInstructions: RepetitionInstruction[];
-    readonly EndingIndexDict: {
+    BackwardJumpInstructions: RepetitionInstruction[];
+    EndingIndexDict: {
         [_: number]: RepetitionEndingPart;
     };
-    readonly EndingParts: RepetitionEndingPart[];
+    EndingParts: RepetitionEndingPart[];
     Visibles: boolean[];
-    readonly DefaultNumberOfRepetitions: number;
+    DefaultNumberOfRepetitions: number;
     UserNumberOfRepetitions: number;
     getForwardJumpTargetForIteration(iteration: number): number;
     getBackwardJumpTarget(): number;
     SetEndingStartIndex(endingNumbers: number[], startIndex: number): void;
     setEndingEndIndex(endingNumber: number, endIndex: number): void;
-    readonly NumberOfEndings: number;
+    NumberOfEndings: number;
     FromWords: boolean;
-    readonly AbsoluteTimestamp: Fraction;
-    readonly StartIndex: number;
-    readonly EndIndex: number;
+    AbsoluteTimestamp: Fraction;
+    StartIndex: number;
+    EndIndex: number;
     private checkRepetitionForMultipleLyricVerses();
-    readonly FirstSourceMeasureNumber: number;
-    readonly LastSourceMeasureNumber: number;
+    FirstSourceMeasureNumber: number;
+    LastSourceMeasureNumber: number;
 }
 export declare class RepetitionEndingPart {
     constructor(endingPart: SourceMusicPart);

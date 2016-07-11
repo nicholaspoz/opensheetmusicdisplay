@@ -1,5 +1,5 @@
 "use strict";
-var chai = require('chai');
+var chai = require("chai");
 var VexFlowMusicSheetDrawer_1 = require("../../../../src/MusicalScore/Graphical/VexFlow/VexFlowMusicSheetDrawer");
 var GraphicalMusicSheet_1 = require("../../../../src/MusicalScore/Graphical/GraphicalMusicSheet");
 var MusicSheetReader_1 = require("../../../../src/MusicalScore/ScoreIO/MusicSheetReader");

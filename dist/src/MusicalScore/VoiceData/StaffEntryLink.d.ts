@@ -4,6 +4,6 @@ export declare class StaffEntryLink {
     constructor(voiceEntry: VoiceEntry);
     private voiceEntry;
     private linkStaffEntries;
-    readonly GetVoiceEntry: VoiceEntry;
+    GetVoiceEntry: VoiceEntry;
     LinkStaffEntries: SourceStaffEntry[];
 }

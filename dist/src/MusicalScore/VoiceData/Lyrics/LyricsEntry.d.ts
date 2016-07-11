@@ -6,6 +6,6 @@ export declare class LyricsEntry {
     private word;
     private parent;
     Text: string;
-    readonly Word: LyricWord;
+    Word: LyricWord;
     Parent: VoiceEntry;
 }

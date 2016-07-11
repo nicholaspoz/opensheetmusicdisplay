@@ -10,7 +10,7 @@ export declare class Staff {
     private volume;
     private id;
     ParentInstrument: Instrument;
-    readonly Voices: Voice[];
-    readonly Id: number;
+    Voices: Voice[];
+    Id: number;
     Volume: number;
 }

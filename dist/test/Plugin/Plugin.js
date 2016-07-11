@@ -1,35 +1,28 @@
 "use strict";
-var _this = this;
-var chai = require('chai');
-var spies = require('chai-spies');
+var chai = require("chai");
+var spies = require("chai-spies");
 chai.use(spies);
-var MusicSheetReader_1 = require("../../src/MusicalScore/ScoreIO/MusicSheetReader");
 var MusicSheetAPI_1 = require("../../src/MusicSheetAPI");
-var Xml_1 = require("../../src/Common/FileIO/Xml");
 var _1 = require("./");
 describe("OSMD Plugin infrastructure", function () {
-    // Initialize variables
     var path = "test/data/MuzioClementi_SonatinaOpus36No1_Part1.xml";
-    var reader = new MusicSheetReader_1.MusicSheetReader();
-    var score;
-    var sheet;
+    var doc;
     var osmd;
     function getSheet(filename) {
         return (window.__xml__)[filename];
     }
-    before(function () {
-        // Load the xml file
-        var doc = getSheet(path);
+    before(function (done) {
+        doc = getSheet(path);
         chai.expect(doc).to.not.be.undefined;
-        score = new Xml_1.IXmlElement(doc.getElementsByTagName("score-partwise")[0]);
-        // chai.expect(score).to.not.be.undefined;
-        sheet = reader.createMusicSheet(score, path);
+        done();
     });
-    beforeEach(function () {
-        _this.osmd = new MusicSheetAPI_1.MusicSheetAPI();
+    beforeEach(function (done) {
+        osmd = new MusicSheetAPI_1.MusicSheetAPI();
+        done();
     });
-    afterEach(function () {
-        _this.osmd = null;
+    afterEach(function (done) {
+        osmd = undefined;
+        done();
     });
     it("registers a plugin", function (done) {
         var plugin = new _1.MockPlugin();
@@ -42,10 +35,32 @@ describe("OSMD Plugin infrastructure", function () {
         osmd.unregisterPlugin(plugin);
         done();
     });
+    it("denies registering the same plugin twice", function (done) {
+        var plugin = new _1.MockPlugin();
+        osmd.registerPlugin(plugin);
+        chai.expect(osmd.registerPlugin.bind(plugin)).to.throw(/already registered/);
+        done();
+    });
     it("triggers on sheet loaded", function (done) {
         var plugin = new _1.MockPlugin();
         osmd.registerPlugin(plugin);
-        osmd.load(_this.score);
+        osmd.load(doc);
+        chai.expect(plugin.OnSheetLoadedSpy).to.have.been.called.once();
+        done();
+    });
+    it("triggers on sheet reload", function (done) {
+        var plugin = new _1.MockPlugin();
+        osmd.registerPlugin(plugin);
+        osmd.load(doc);
+        chai.expect(plugin.OnSheetLoadedSpy).to.have.been.called.once();
+        osmd.load(doc);
+        chai.expect(plugin.OnSheetLoadedSpy).to.have.been.called.twice();
+        done();
+    });
+    it("triggers on sheet loaded", function (done) {
+        var plugin = new _1.MockPlugin();
+        osmd.registerPlugin(plugin);
+        osmd.load(doc);
         chai.expect(plugin.OnSheetLoadedSpy).to.have.been.called.once();
         done();
     });

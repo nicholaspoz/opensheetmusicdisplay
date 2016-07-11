@@ -10,12 +10,12 @@ export declare class MappingSourceMusicPart {
     private startTimestamp;
     private repetitionRun;
     private isEnding;
-    readonly IsRepetition: boolean;
-    readonly IsEnding: boolean;
-    readonly IsLastRepetitionRun: boolean;
-    readonly RepetitionRun: number;
-    readonly ParentPartListEntry: PartListEntry;
-    readonly SourceMusicPart: SourceMusicPart;
-    readonly StartTimestamp: Fraction;
+    IsRepetition: boolean;
+    IsEnding: boolean;
+    IsLastRepetitionRun: boolean;
+    RepetitionRun: number;
+    ParentPartListEntry: PartListEntry;
+    SourceMusicPart: SourceMusicPart;
+    StartTimestamp: Fraction;
     CompareTo(comp: MappingSourceMusicPart): number;
 }

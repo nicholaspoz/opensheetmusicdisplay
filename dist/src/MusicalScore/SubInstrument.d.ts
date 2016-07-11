@@ -10,7 +10,7 @@ export declare class SubInstrument {
     fixedKey: number;
     name: string;
     private parentInstrument;
-    readonly ParentInstrument: Instrument;
+    ParentInstrument: Instrument;
     static isPianoInstrument(instrument: MidiInstrument): boolean;
     setMidiInstrument(instrumentType: string): void;
     private parseMidiInstrument(instrumentType);

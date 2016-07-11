@@ -9,11 +9,11 @@ export declare class Voice {
     private voiceId;
     private volume;
     constructor(parent: Instrument, voiceId: number);
-    readonly VoiceEntries: VoiceEntry[];
-    readonly Parent: Instrument;
+    VoiceEntries: VoiceEntry[];
+    Parent: Instrument;
     Visible: boolean;
     Audible: boolean;
     Following: boolean;
-    readonly VoiceId: number;
+    VoiceId: number;
     Volume: number;
 }

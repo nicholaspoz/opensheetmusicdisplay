@@ -8,11 +8,11 @@ export declare class ChordSymbolContainer {
     private degree;
     private keyInstruction;
     constructor(rootPitch: Pitch, chordKind: ChordSymbolEnum, bassPitch: Pitch, chordDegree: Degree, keyInstruction: KeyInstruction);
-    readonly RootPitch: Pitch;
-    readonly ChordKind: ChordSymbolEnum;
-    readonly BassPitch: Pitch;
-    readonly ChordDegree: Degree;
-    readonly KeyInstruction: KeyInstruction;
+    RootPitch: Pitch;
+    ChordKind: ChordSymbolEnum;
+    BassPitch: Pitch;
+    ChordDegree: Degree;
+    KeyInstruction: KeyInstruction;
     static calculateChordText(chordSymbol: ChordSymbolContainer, transposeHalftones: number): string;
     private static getTextForAccidental(alteration);
     private static getTextFromChordKindEnum(kind);

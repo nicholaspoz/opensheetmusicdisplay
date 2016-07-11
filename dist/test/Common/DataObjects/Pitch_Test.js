@@ -1,5 +1,5 @@
 "use strict";
-var chai = require('chai');
+var chai = require("chai");
 var pitch_1 = require("../../../src/Common/DataObjects/pitch");
 describe("Pitch Unit Tests:", function () {
     describe("transpose Pitch", function () {

@@ -32,17 +32,17 @@ export declare abstract class MusicSystem extends GraphicalObject {
     protected rules: EngravingRules;
     constructor(parent: GraphicalMusicPage, id: number);
     Parent: GraphicalMusicPage;
-    readonly StaffLines: StaffLine[];
-    readonly GraphicalMeasures: StaffMeasure[][];
-    readonly MeasureNumberLabels: GraphicalLabel[];
-    readonly Labels: GraphicalLabel[];
-    readonly ObjectsToRedraw: [Object[], Object][];
-    readonly InstrumentBrackets: GraphicalObject[];
-    readonly GroupBrackets: GraphicalObject[];
-    readonly GraphicalMarkedAreas: GraphicalMarkedArea[];
-    readonly GraphicalComments: GraphicalComment[];
-    readonly SystemLines: SystemLine[];
-    readonly Id: number;
+    StaffLines: StaffLine[];
+    GraphicalMeasures: StaffMeasure[][];
+    MeasureNumberLabels: GraphicalLabel[];
+    Labels: GraphicalLabel[];
+    ObjectsToRedraw: [Object[], Object][];
+    InstrumentBrackets: GraphicalObject[];
+    GroupBrackets: GraphicalObject[];
+    GraphicalMarkedAreas: GraphicalMarkedArea[];
+    GraphicalComments: GraphicalComment[];
+    SystemLines: SystemLine[];
+    Id: number;
     /**
      * This method creates the left vertical Line connecting all staves of the MusicSystem.
      * @param lineWidth

@@ -24,13 +24,13 @@ export declare class MultiExpression {
     SourceMeasureParent: SourceMeasure;
     StaffNumber: number;
     Timestamp: Fraction;
-    readonly AbsoluteTimestamp: Fraction;
+    AbsoluteTimestamp: Fraction;
     InstantaniousDynamic: InstantaniousDynamicExpression;
     EndingContinuousDynamic: ContinuousDynamicExpression;
     StartingContinuousDynamic: ContinuousDynamicExpression;
-    readonly MoodList: MoodExpression[];
-    readonly UnknownList: UnknownExpression[];
-    readonly EntriesList: MultiExpressionEntry[];
+    MoodList: MoodExpression[];
+    UnknownList: UnknownExpression[];
+    EntriesList: MultiExpressionEntry[];
     OctaveShiftStart: OctaveShift;
     OctaveShiftEnd: OctaveShift;
     CombinedExpressionsText: string;

@@ -28,9 +28,9 @@ export declare abstract class GraphicalStaffEntry extends GraphicalObject {
     private graphicalInstructions;
     private graphicalTies;
     private lyricsEntries;
-    readonly GraphicalInstructions: AbstractGraphicalInstruction[];
-    readonly GraphicalTies: GraphicalTie[];
-    readonly LyricsEntries: GraphicalLyricEntry[];
+    GraphicalInstructions: AbstractGraphicalInstruction[];
+    GraphicalTies: GraphicalTie[];
+    LyricsEntries: GraphicalLyricEntry[];
     getAbsoluteTimestamp(): Fraction;
     findEndTieGraphicalNoteFromNote(tieNote: Note): GraphicalNote;
     findEndTieGraphicalNoteFromNoteWithStartingSlur(tieNote: Note, slur: Slur): GraphicalNote;

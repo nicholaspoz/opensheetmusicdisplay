@@ -47,7 +47,7 @@ export declare abstract class MusicSheetCalculator {
     protected symbolFactory: IGraphicalSymbolFactory;
     constructor(symbolFactory: IGraphicalSymbolFactory);
     static TextMeasurer: ITextMeasurer;
-    protected readonly leadSheet: boolean;
+    protected leadSheet: boolean;
     private static addTieToTieTimestampsDict(tieTimestampListDict, note);
     private static setMeasuresMinStaffEntriesWidth(measures, minimumStaffEntriesWidth);
     initialize(graphicalMusicSheet: GraphicalMusicSheet): void;

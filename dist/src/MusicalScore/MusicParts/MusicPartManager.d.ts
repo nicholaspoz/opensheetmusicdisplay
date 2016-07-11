@@ -14,8 +14,8 @@ export declare class MusicPartManager {
     init(): void;
     getCurrentRepetitionTimestampTransform(curEnrolledTimestamp: Fraction): TimestampTransform;
     absoluteEnrolledToSheetTimestamp(timestamp: Fraction): Fraction;
-    readonly Parts: PartListEntry[];
-    readonly MusicSheet: MusicSheet;
+    Parts: PartListEntry[];
+    MusicSheet: MusicSheet;
     getIterator(start?: Fraction): MusicPartManagerIterator;
     setSelectionStart(beginning: Fraction): void;
     setSelectionRange(start: Fraction, end: Fraction): void;

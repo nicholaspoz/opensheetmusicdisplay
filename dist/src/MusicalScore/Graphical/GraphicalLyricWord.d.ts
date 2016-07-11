@@ -4,7 +4,7 @@ export declare class GraphicalLyricWord {
     private lyricWord;
     private graphicalLyricsEntries;
     constructor(lyricWord: LyricWord);
-    readonly GetLyricWord: LyricWord;
+    GetLyricWord: LyricWord;
     GraphicalLyricsEntries: GraphicalLyricEntry[];
     isFilled(): boolean;
     private initialize();

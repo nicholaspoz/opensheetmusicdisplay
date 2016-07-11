@@ -136,8 +136,8 @@ export declare class EngravingRules {
     private durationDistanceDict;
     private durationScalingDistanceDict;
     constructor();
-    static readonly Rules: EngravingRules;
-    readonly SamplingUnit: number;
+    static Rules: EngravingRules;
+    SamplingUnit: number;
     SheetTitleHeight: number;
     SheetSubtitleHeight: number;
     SheetMinimumDistanceBetweenTitleAndSubtitle: number;
@@ -157,7 +157,7 @@ export declare class EngravingRules {
     SystemLeftMargin: number;
     SystemRightMargin: number;
     FirstSystemMargin: number;
-    readonly SystemLabelsRightMargin: number;
+    SystemLabelsRightMargin: number;
     MinimumAllowedDistanceBetweenSystems: number;
     LastSystemMaxScalingFactor: number;
     StaffDistance: number;
@@ -268,10 +268,10 @@ export declare class EngravingRules {
     MaxInstructionsConstValue: number;
     NoteDistances: number[];
     NoteDistancesScalingFactors: number[];
-    readonly DurationDistanceDict: {
+    DurationDistanceDict: {
         [_: number]: number;
     };
-    readonly DurationScalingDistanceDict: {
+    DurationScalingDistanceDict: {
         [_: number]: number;
     };
     private populateDictionaries();

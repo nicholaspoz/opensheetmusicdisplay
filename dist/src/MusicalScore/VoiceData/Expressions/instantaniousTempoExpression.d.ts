@@ -32,9 +32,9 @@ export declare class InstantaniousTempoExpression extends AbstractTempoExpressio
     Label: string;
     Placement: PlacementEnum;
     StaffNumber: number;
-    readonly Enum: TempoEnum;
+    Enum: TempoEnum;
     TempoInBpm: number;
-    readonly ParentMultiTempoExpression: MultiTempoExpression;
+    ParentMultiTempoExpression: MultiTempoExpression;
     getAbsoluteTimestamp(): Fraction;
     getAbsoluteFloatTimestamp(): number;
     private setTempoAndTempoType(soundTempo);

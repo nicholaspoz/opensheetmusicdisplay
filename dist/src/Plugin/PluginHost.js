@@ -15,7 +15,7 @@ var PluginHost = (function () {
             plugin.registerEvents(this.eventSource);
         }
         else {
-            throw ("Plugin already registered.");
+            throw new Error("Plugin already registered.");
         }
     };
     PluginHost.prototype.unregisterPlugin = function (plugin) {

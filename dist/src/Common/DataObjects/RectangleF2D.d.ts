@@ -7,6 +7,6 @@ export declare class RectangleF2D {
     height: number;
     constructor(x: number, y: number, width: number, height: number);
     static createFromLocationAndSize(location: PointF2D, size: SizeF2D): RectangleF2D;
-    readonly Location: PointF2D;
-    readonly Size: SizeF2D;
+    Location: PointF2D;
+    Size: SizeF2D;
 }
