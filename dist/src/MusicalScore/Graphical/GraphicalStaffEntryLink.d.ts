@@ -5,7 +5,7 @@ export declare class GraphicalStaffEntryLink {
     private staffEntryLink;
     private graphicalLinkedStaffEntries;
     constructor(staffEntryLink: StaffEntryLink);
-    GetStaffEntryLink: StaffEntryLink;
+    readonly GetStaffEntryLink: StaffEntryLink;
     GraphicalLinkedStaffEntries: GraphicalStaffEntry[];
     isFilled(): boolean;
     getLinkedStaffEntriesGraphicalNotes(graphicalStaffEntry: GraphicalStaffEntry): GraphicalNote[];

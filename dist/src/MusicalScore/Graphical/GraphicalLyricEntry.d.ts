@@ -8,7 +8,7 @@ export declare class GraphicalLyricEntry {
     private graphicalLabel;
     private graphicalStaffEntry;
     constructor(lyricsEntry: LyricsEntry, graphicalStaffEntry: GraphicalStaffEntry, lyricsHeight: number, staffHeight: number);
-    GetLyricsEntry: LyricsEntry;
+    readonly GetLyricsEntry: LyricsEntry;
     ParentLyricWord: GraphicalLyricWord;
     GraphicalLabel: GraphicalLabel;
     StaffEntryParent: GraphicalStaffEntry;

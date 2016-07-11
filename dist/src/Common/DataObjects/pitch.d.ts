@@ -46,11 +46,11 @@ export declare class Pitch {
     static ceiling(halftone: number): NoteEnum;
     static floor(halftone: number): NoteEnum;
     constructor(fundamentalNote: NoteEnum, octave: number, accidental: AccidentalEnum);
-    Octave: number;
-    FundamentalNote: NoteEnum;
-    Accidental: AccidentalEnum;
-    Frequency: number;
-    static OctaveXmlDifference: number;
+    readonly Octave: number;
+    readonly FundamentalNote: NoteEnum;
+    readonly Accidental: AccidentalEnum;
+    readonly Frequency: number;
+    static readonly OctaveXmlDifference: number;
     getHalfTone(): number;
     getTransposedPitch(factor: number): Pitch;
     DoEnharmonicChange(): void;

@@ -23,7 +23,7 @@ export declare class VoiceGenerator {
     private currentOctaveShift;
     private tupletDict;
     private openTupletNumber;
-    GetVoice: Voice;
+    readonly GetVoice: Voice;
     OctaveShift: number;
     createVoiceEntry(musicTimestamp: Fraction, parentStaffEntry: SourceStaffEntry, addToVoice: boolean): void;
     read(noteNode: IXmlElement, noteDuration: number, divisions: number, restNote: boolean, graceNote: boolean, parentStaffEntry: SourceStaffEntry, parentMeasure: SourceMeasure, measureStartAbsoluteTimestamp: Fraction, maxTieNoteFraction: Fraction, chord: boolean, guitarPro: boolean): Note;

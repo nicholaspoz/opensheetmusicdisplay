@@ -4,7 +4,7 @@ export declare class OrnamentContainer {
     private ornament;
     private accidentalAbove;
     private accidentalBelow;
-    GetOrnament: OrnamentEnum;
+    readonly GetOrnament: OrnamentEnum;
     AccidentalAbove: AccidentalEnum;
     AccidentalBelow: AccidentalEnum;
 }

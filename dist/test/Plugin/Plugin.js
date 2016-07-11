@@ -4,7 +4,7 @@ var spies = require("chai-spies");
 chai.use(spies);
 var MusicSheetAPI_1 = require("../../src/MusicSheetAPI");
 var _1 = require("./");
-describe("OSMD Plugin infrastructure", function () {
+describe("OSMD plugin infrastructure", function () {
     var path = "test/data/MuzioClementi_SonatinaOpus36No1_Part1.xml";
     var doc;
     var osmd;
@@ -24,6 +24,9 @@ describe("OSMD Plugin infrastructure", function () {
         osmd = undefined;
         done();
     });
+    /*
+     * Tests for PluginHost infrastructure and MusicSheetAPI implementation.
+     */
     it("registers a plugin", function (done) {
         var plugin = new _1.MockPlugin();
         osmd.registerPlugin(plugin);
@@ -33,14 +36,21 @@ describe("OSMD Plugin infrastructure", function () {
         var plugin = new _1.MockPlugin();
         osmd.registerPlugin(plugin);
         osmd.unregisterPlugin(plugin);
+        osmd.registerPlugin(plugin);
         done();
     });
     it("denies registering the same plugin twice", function (done) {
         var plugin = new _1.MockPlugin();
         osmd.registerPlugin(plugin);
-        chai.expect(osmd.registerPlugin.bind(plugin)).to.throw(/already registered/);
+        chai.expect(function () { return osmd.registerPlugin(plugin); }).to.throw(/already registered/);
         done();
     });
+    /*
+     * Tests for IEventSource events.
+     */
+    /*
+     * IEventSource.OnSheetLoaded
+     */
     it("triggers on sheet loaded", function (done) {
         var plugin = new _1.MockPlugin();
         osmd.registerPlugin(plugin);
@@ -55,13 +65,6 @@ describe("OSMD Plugin infrastructure", function () {
         chai.expect(plugin.OnSheetLoadedSpy).to.have.been.called.once();
         osmd.load(doc);
         chai.expect(plugin.OnSheetLoadedSpy).to.have.been.called.twice();
-        done();
-    });
-    it("triggers on sheet loaded", function (done) {
-        var plugin = new _1.MockPlugin();
-        osmd.registerPlugin(plugin);
-        osmd.load(doc);
-        chai.expect(plugin.OnSheetLoadedSpy).to.have.been.called.once();
         done();
     });
 });

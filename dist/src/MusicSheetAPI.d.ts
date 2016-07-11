@@ -51,6 +51,6 @@ export declare class MusicSheetAPI implements IEventSource {
      * @param plugin The plugin to be unregistered from this instance.
      */
     unregisterPlugin(plugin: IPlugin): void;
-    OnSheetLoaded: IEvent<MusicSheet>;
-    OnSizeChanged: IEvent<SizeF2D>;
+    readonly OnSheetLoaded: IEvent<MusicSheet>;
+    readonly OnSizeChanged: IEvent<SizeF2D>;
 }

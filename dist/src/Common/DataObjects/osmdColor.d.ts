@@ -4,16 +4,16 @@ export declare class OSMDColor {
     green: number;
     blue: number;
     constructor(red: number, green: number, blue: number);
-    static Black: OSMDColor;
-    static DeepSkyBlue: OSMDColor;
-    static Green: OSMDColor;
-    static Magenta: OSMDColor;
-    static Orange: OSMDColor;
-    static Red: OSMDColor;
-    static Disabled: OSMDColor;
-    static DarkBlue: OSMDColor;
-    static Debug1: OSMDColor;
-    static Debug2: OSMDColor;
-    static Debug3: OSMDColor;
+    static readonly Black: OSMDColor;
+    static readonly DeepSkyBlue: OSMDColor;
+    static readonly Green: OSMDColor;
+    static readonly Magenta: OSMDColor;
+    static readonly Orange: OSMDColor;
+    static readonly Red: OSMDColor;
+    static readonly Disabled: OSMDColor;
+    static readonly DarkBlue: OSMDColor;
+    static readonly Debug1: OSMDColor;
+    static readonly Debug2: OSMDColor;
+    static readonly Debug3: OSMDColor;
     toString(): string;
 }

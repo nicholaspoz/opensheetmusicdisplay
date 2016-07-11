@@ -37,8 +37,8 @@ export declare class GraphicalMusicSheet {
     private minAllowedSystemWidth;
     private numberOfStaves;
     private leadSheet;
-    ParentMusicSheet: MusicSheet;
-    GetCalculator: MusicSheetCalculator;
+    readonly ParentMusicSheet: MusicSheet;
+    readonly GetCalculator: MusicSheetCalculator;
     MusicPages: GraphicalMusicPage[];
     MeasureList: StaffMeasure[][];
     VerticalGraphicalStaffEntryContainers: VerticalGraphicalStaffEntryContainer[];
@@ -46,11 +46,11 @@ export declare class GraphicalMusicSheet {
     Subtitle: GraphicalLabel;
     Composer: GraphicalLabel;
     Lyricist: GraphicalLabel;
-    Cursors: GraphicalLine[];
-    SelectionStartSymbol: SelectionStartSymbol;
-    SelectionEndSymbol: SelectionEndSymbol;
+    readonly Cursors: GraphicalLine[];
+    readonly SelectionStartSymbol: SelectionStartSymbol;
+    readonly SelectionEndSymbol: SelectionEndSymbol;
     MinAllowedSystemWidth: number;
-    NumberOfStaves: number;
+    readonly NumberOfStaves: number;
     LeadSheet: boolean;
     static transformRelativeToAbsolutePosition(graphicalMusicSheet: GraphicalMusicSheet): void;
     Initialize(): void;
