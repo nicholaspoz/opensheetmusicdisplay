@@ -46,7 +46,9 @@ var VexFlowMusicSheetCalculator = (function (_super) {
         }
         // Format the voices
         var allVoices = [];
-        var formatter = new Vex.Flow.Formatter();
+        var formatter = new Vex.Flow.Formatter({
+            align_rests: true,
+        });
         for (var _a = 0, measures_2 = measures; _a < measures_2.length; _a++) {
             var measure = measures_2[_a];
             var mvoices = measure.vfVoices;
@@ -64,7 +66,9 @@ var VexFlowMusicSheetCalculator = (function (_super) {
             formatter.joinVoices(voices);
         }
         var firstMeasure = measures[0];
-        var width = formatter.preCalculateMinTotalWidth(allVoices) / firstMeasure.unit;
+        // FIXME: The following ``+ 5.0'' is temporary: it was added as a workaround for
+        // FIXME: a more relaxed formatting of voices
+        var width = formatter.preCalculateMinTotalWidth(allVoices) / 10.0 + 5.0;
         for (var _b = 0, measures_3 = measures; _b < measures_3.length; _b++) {
             var measure = measures_3[_b];
             measure.minimumStaffEntriesWidth = width;

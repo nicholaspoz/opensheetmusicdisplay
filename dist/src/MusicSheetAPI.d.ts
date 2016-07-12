@@ -2,43 +2,41 @@ import { MusicSheet } from "./MusicalScore/MusicSheet";
 import { SizeF2D } from "./Common/DataObjects/SizeF2D";
 import { IEvent, IEventSource, IPlugin } from "./Plugin";
 export declare class MusicSheetAPI implements IEventSource {
-    constructor();
+    constructor(container: HTMLElement);
+    private container;
+    private titles;
     private canvas;
     private sheet;
     private drawer;
     private graphic;
-    private width;
     private zoom;
     private unit;
+    private fraction;
     private pluginHost;
     private onSheetLoaded;
     private onSizeChanged;
-    /**
-     * Initialize this object to default values
-     */
-    free(): void;
     /**
      * Load a MusicXML file
      *
      * @param doc is the root node of a MusicXML document
      */
-    load(doc: Document): void;
-    /**
-     * Set the drawing canvas
-     * @param canvas
-     */
-    setCanvas(canvas: HTMLCanvasElement): void;
-    /**
-     * Set the canvas width
-     * @param width
-     */
-    setWidth(width: number): void;
+    load(content: string | Document): void;
     /**
      * Set the zoom
-     * @param k
+     * @param factor is the zooming factor
      */
-    scale(k: number): void;
-    display(): void;
+    scale(factor: number): void;
+    /**
+     * Render the music sheet in the container
+     */
+    render(): void;
+    next(): void;
+    private loadURL(url);
+    private resetTitle();
+    /**
+     * Initialize this object to default values
+     */
+    private reset();
     /**
      * Register a plugin with this OSMD instance.
      *

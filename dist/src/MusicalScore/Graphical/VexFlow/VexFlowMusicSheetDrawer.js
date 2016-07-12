@@ -9,22 +9,26 @@ var MusicSheetDrawer_1 = require("../MusicSheetDrawer");
 var RectangleF2D_1 = require("../../../Common/DataObjects/RectangleF2D");
 var PointF2D_1 = require("../../../Common/DataObjects/PointF2D");
 var VexFlowConverter_1 = require("./VexFlowConverter");
+var VexFlowTextMeasurer_1 = require("./VexFlowTextMeasurer");
 var VexFlowMusicSheetDrawer = (function (_super) {
     __extends(VexFlowMusicSheetDrawer, _super);
-    function VexFlowMusicSheetDrawer(canvas, textMeasurer, isPreviewImageDrawer) {
+    function VexFlowMusicSheetDrawer(titles, canvas, isPreviewImageDrawer) {
         if (isPreviewImageDrawer === void 0) { isPreviewImageDrawer = false; }
-        _super.call(this, textMeasurer, isPreviewImageDrawer);
+        _super.call(this, new VexFlowTextMeasurer_1.VexFlowTextMeasurer(), isPreviewImageDrawer);
+        this.zoom = 1.0;
         this.renderer = new Vex.Flow.Renderer(canvas, Vex.Flow.Renderer.Backends.CANVAS);
         this.vfctx = this.renderer.getContext();
         // The following is a hack to retrieve the actual canvas' drawing context
         // Not supposed to work forever....
         this.ctx = this.vfctx.vexFlowCanvasContext;
+        this.titles = titles;
     }
     /**
      * Zoom the rendering areas
      * @param k is the zoom factor
      */
     VexFlowMusicSheetDrawer.prototype.scale = function (k) {
+        this.zoom = k;
         this.vfctx.scale(k, k);
     };
     /**
@@ -61,6 +65,20 @@ var VexFlowMusicSheetDrawer = (function (_super) {
      * @param screenPosition the position of the lower left corner of the text in screen coordinates
      */
     VexFlowMusicSheetDrawer.prototype.renderLabel = function (graphicalLabel, layer, bitmapWidth, bitmapHeight, heightInPixel, screenPosition) {
+        if (screenPosition.y < 0) {
+            // Temportary solution for title labels
+            var div = document.createElement("div");
+            div.style.fontSize = (graphicalLabel.Label.fontHeight * this.zoom * 10.0) + "px";
+            //span.style.width = (bitmapWidth * this.zoom * 1.1) + "px";
+            //span.style.height = (bitmapHeight * this.zoom * 1.1) + "px";
+            //span.style.overflow = "hidden";
+            div.style.fontFamily = "Times New Roman";
+            //span.style.marginLeft = (screenPosition.x * this.zoom) + "px";
+            div.style.textAlign = "center";
+            div.appendChild(document.createTextNode(graphicalLabel.Label.text));
+            this.titles.appendChild(div);
+            return;
+        }
         var ctx = this.vfctx.vexFlowCanvasContext;
         var old = ctx.font;
         ctx.font = VexFlowConverter_1.VexFlowConverter.font(graphicalLabel.Label.fontHeight * 10.0, graphicalLabel.Label.fontStyle, graphicalLabel.Label.font);

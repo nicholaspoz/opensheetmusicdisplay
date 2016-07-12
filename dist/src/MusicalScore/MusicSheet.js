@@ -46,7 +46,9 @@ var MusicSheet /*implements ISettableMusicSheet, IComparable<MusicSheet>*/ = (fu
         this.hasBeenOpenedForTheFirstTime = false;
         this.currentEnrolledPosition = new fraction_1.Fraction(0, 1);
         this.rules = EngravingRules_1.EngravingRules.Rules;
-        // (*) this.playbackSettings = new PlaybackSettings(new Fraction(4, 4, false), 100);
+        this.playbackSettings = new PlaybackSettings();
+        // FIXME:
+        this.playbackSettings.rhythm = new fraction_1.Fraction(4, 4, false);
         this.userStartTempoInBPM = 100;
         this.pageWidth = 120;
         this.MusicPartManager = new MusicPartManager_1.MusicPartManager(this);

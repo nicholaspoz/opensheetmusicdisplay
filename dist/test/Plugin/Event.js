@@ -39,6 +39,38 @@ describe("PluginHost's IEvent and actual implementation", function () {
         chai.expect(spy).to.have.been.called.with("the fourth mock event");
         done();
     });
+    it("does return the specified type", function (done) {
+        var eventString = new Plugin_1.Event();
+        var eventNumber = new Plugin_1.Event();
+        var eventCustom = new Plugin_1.Event();
+        var spyString = chai.spy();
+        eventString.on(spyString);
+        eventString.trigger("mock event");
+        chai.expect(spyString).to.have.been.called.once();
+        chai.expect(spyString).to.have.been.called.with("mock event");
+        var spyNumber = chai.spy();
+        eventNumber.on(spyNumber);
+        eventNumber.trigger(123456);
+        chai.expect(spyNumber).to.have.been.called.once();
+        chai.expect(spyNumber).to.have.been.called.with(123456);
+        var spyCustom = chai.spy(function (eventArg) {
+            chai.expect(eventArg).to.be.an("object");
+            chai.expect(eventArg.age).to.be.a("number");
+            chai.expect(eventArg.age).to.equal(60);
+            chai.expect(eventArg.name).to.be.a("string");
+            chai.expect(eventArg.name).to.equal("Max");
+            chai.expect(eventArg.greet).to.be.a("function");
+            chai.expect(eventArg.greet("Unit Tester")).to.equal("Hello, Unit Tester!");
+        });
+        eventCustom.on(spyCustom);
+        eventCustom.trigger({
+            age: 60,
+            greet: function (arg) { return "Hello, " + arg + "!"; },
+            name: "Max",
+        });
+        chai.expect(spyCustom).to.have.been.called.once();
+        done();
+    });
     it("notifies all registered handlers when triggered", function (done) {
         var event = new Plugin_1.Event();
         var spyOne = chai.spy();

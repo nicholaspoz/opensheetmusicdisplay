@@ -292,7 +292,7 @@ var GraphicalMusicSheet = (function () {
     };
     GraphicalMusicSheet.prototype.getOrCreateVerticalContainer = function (timestamp) {
         if (this.verticalGraphicalStaffEntryContainers.length === 0 ||
-            timestamp > collectionUtil_1.CollectionUtil.getLastElement(this.verticalGraphicalStaffEntryContainers).AbsoluteTimestamp) {
+            timestamp.lt(collectionUtil_1.CollectionUtil.getLastElement(this.verticalGraphicalStaffEntryContainers).AbsoluteTimestamp)) {
             var verticalGraphicalStaffEntryContainer = new VerticalGraphicalStaffEntryContainer_1.VerticalGraphicalStaffEntryContainer(this.numberOfStaves, timestamp);
             this.verticalGraphicalStaffEntryContainers.push(verticalGraphicalStaffEntryContainer);
             return verticalGraphicalStaffEntryContainer;

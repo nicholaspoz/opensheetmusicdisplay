@@ -17,7 +17,7 @@ describe("OSMD plugin infrastructure", function () {
         done();
     });
     beforeEach(function (done) {
-        osmd = new MusicSheetAPI_1.MusicSheetAPI();
+        osmd = new MusicSheetAPI_1.MusicSheetAPI(document.documentElement);
         done();
     });
     afterEach(function (done) {
